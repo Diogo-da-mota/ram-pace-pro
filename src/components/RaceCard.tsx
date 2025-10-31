@@ -81,7 +81,7 @@ const RaceCard = ({
         {/* Mobile: Layout horizontal com imagem lateral */}
         <div className="md:hidden flex gap-4 bg-gray-900 rounded-2xl overflow-hidden p-4">
           {/* Imagem menor na lateral */}
-          <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
+          <div className="w-24 h-24 flex-shrink-2 rounded-lg overflow-hidden">
             <img 
               src={image} 
               alt={title}
