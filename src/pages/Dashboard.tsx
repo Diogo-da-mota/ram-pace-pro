@@ -484,7 +484,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-background text-foreground dark">
       {/* Header */}
       <header className="bg-card border-b border-border p-4">
-        <div className="container-85 flex items-center justify-between">
+        <div className="w-full px-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <img 
               src="/lovable-uploads/0677547b-3e24-403f-9162-45f6deb0cf93.png" 
@@ -499,7 +499,7 @@ const Dashboard = () => {
         </div>
       </header>
 
-      <div className="container-85 p-6">
+      <div className="w-full px-4 p-6">
         <Tabs value={activeSection} onValueChange={setActiveSection} className="space-y-6">
           <TabsList className={`grid ${isMobile ? 'grid-cols-4' : 'grid-cols-5'} w-full max-w-3xl mx-auto bg-muted`}>
             <TabsTrigger value="corridas" className="font-medium">Corridas</TabsTrigger>
