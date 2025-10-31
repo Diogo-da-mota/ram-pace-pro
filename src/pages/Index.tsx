@@ -97,7 +97,7 @@ const Index = () => {
 
       {/* Seção Corridas Recentes */}
       <section id="corridas-recentes" className="section-padding bg-black relative overflow-hidden">
-        <div className="container-85 relative z-10">
+        <div className="container-95 relative z-10">
           <div className="animate-slide-up">
             <DiagonalTitle 
               leftText="Corridas"
@@ -106,11 +106,11 @@ const Index = () => {
             />
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-4 lg:gap-6 max-w-7xl mx-auto justify-items-center">
+          <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 lg:gap-6 w-full px-4">
             {corridasRecentesParaExibir.map((corrida, index) => (
               <div 
                 key={corrida.id}
-                className="animate-fade-in hover:scale-105 transition-all duration-300 w-full max-w-[180px] sm:max-w-none"
+                className="animate-fade-in hover:scale-105 transition-all duration-300 w-full"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <RaceCard
@@ -123,6 +123,7 @@ const Index = () => {
                     status={corrida.status}
                     evento_calendario_id={corrida.evento_calendario_id}
                     isRecente={true}
+                    isMobileVertical={true}
                   />
                 </div>
               ))}
@@ -132,7 +133,7 @@ const Index = () => {
 
       {/* Seção Corridas Em Breve */}
       <section id="corridas-em-breve" className="section-padding bg-background relative overflow-hidden">
-        <div className="container-85 relative z-10">
+        <div className="container-95 relative z-10">
           <div className="animate-slide-up">
             <DiagonalTitle 
               leftText="⏰ Em"
@@ -141,11 +142,11 @@ const Index = () => {
             />
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-4 lg:gap-6 max-w-7xl mx-auto justify-items-center">
+          <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 lg:gap-6 w-full px-4">
             {corridasEmBreveParaExibir.map((corrida, index) => (
               <div 
                 key={corrida.id}
-                className="animate-fade-in hover:scale-105 transition-all duration-300 w-full max-w-[180px] sm:max-w-none"
+                className="animate-fade-in hover:scale-105 transition-all duration-300 w-full"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <RaceCard
@@ -158,6 +159,7 @@ const Index = () => {
                     status={corrida.status}
                     evento_calendario_id={corrida.evento_calendario_id}
                     isRecente={false}
+                    isMobileVertical={true}
                   />
                 </div>
               ))}

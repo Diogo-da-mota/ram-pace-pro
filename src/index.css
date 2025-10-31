@@ -127,6 +127,30 @@
       padding-right: 1.5rem;
     }
   }
+
+  /* Container responsivo: 100% mobile, 95% desktop para seções de corridas */
+  .container-95 {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.75rem; /* 12px mobile */
+    padding-right: 0.75rem;
+  }
+  
+  @media (min-width: 768px) {
+    .container-95 {
+      padding-left: 1rem; /* 16px tablet+ */
+      padding-right: 1rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-95 {
+      max-width: 95%;
+      padding-left: 1.5rem; /* 24px desktop */
+      padding-right: 1.5rem;
+    }
+  }
   
   /* Sistema de espaçamentos responsivos */
   .spacing-responsive-sm {
