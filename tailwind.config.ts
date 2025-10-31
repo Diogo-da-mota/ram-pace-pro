@@ -31,6 +31,10 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -46,6 +50,11 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        whatsapp: "hsl(var(--whatsapp))",
+        instagram: {
+          start: "hsl(var(--instagram-start))",
+          end: "hsl(var(--instagram-end))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
