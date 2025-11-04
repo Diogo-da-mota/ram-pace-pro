@@ -2,47 +2,13 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-declare global {
-  interface Window {
-    __ENV__?: {
-      VITE_SUPABASE_URL?: string;
-      VITE_SUPABASE_ANON_KEY?: string;
-    };
-  }
-}
-
-const pickNonEmpty = (...vals: Array<string | undefined | null>) => {
-  for (const v of vals) {
-    if (typeof v === 'string' && v.trim() !== '') return v;
-  }
-  return undefined;
-};
-
-const SUPABASE_URL =
-  pickNonEmpty(
-    import.meta.env.VITE_SUPABASE_URL,
-    typeof window !== 'undefined' ? window.__ENV__?.VITE_SUPABASE_URL : undefined
-  ) ?? 'https://example.supabase.co';
-
-const SUPABASE_PUBLISHABLE_KEY =
-  pickNonEmpty(
-    import.meta.env.VITE_SUPABASE_ANON_KEY,
-    typeof window !== 'undefined' ? window.__ENV__?.VITE_SUPABASE_ANON_KEY : undefined
-  ) ?? 'public-anon-key';
-
-if (
-  SUPABASE_URL === 'https://example.supabase.co' ||
-  SUPABASE_PUBLISHABLE_KEY === 'public-anon-key'
-) {
-  console.warn(
-    'Supabase não configurado. Defina VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY via .env ou public/env-config.js no Lovable.'
-  );
-}
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
-export const supabase = createClient<Database>(SUPABASE_URL as string, SUPABASE_PUBLISHABLE_KEY as string, {
+export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
     storage: localStorage,
     persistSession: true,
