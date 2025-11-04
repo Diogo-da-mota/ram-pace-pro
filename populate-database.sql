@@ -68,7 +68,7 @@ SELECT
     true as publicado
 FROM categorias c, usuarios u
 WHERE c.nome = 'Maratona' 
-  AND u.email = 'admin@pacerunhub.com'
+  AND u.email = 'admin@example.com'
   AND NOT EXISTS (
       SELECT 1 FROM corridas 
       WHERE titulo = 'Maratona Internacional de São Paulo 2024'
@@ -100,7 +100,7 @@ SELECT
     true as publicado
 FROM categorias c, usuarios u
 WHERE c.nome = '10K' 
-  AND u.email = 'admin@pacerunhub.com'
+  AND u.email = 'admin@example.com'
   AND NOT EXISTS (
       SELECT 1 FROM corridas 
       WHERE titulo = 'Corrida de Reis - Rio de Janeiro 2025'
@@ -132,7 +132,7 @@ SELECT
     true as publicado
 FROM categorias c, usuarios u
 WHERE c.nome = 'Trail Run' 
-  AND u.email = 'admin@pacerunhub.com'
+  AND u.email = 'admin@example.com'
   AND NOT EXISTS (
       SELECT 1 FROM corridas 
       WHERE titulo = 'Trail Run Serra da Mantiqueira'
@@ -164,7 +164,7 @@ SELECT
     true as publicado
 FROM categorias c, usuarios u
 WHERE c.nome = 'Meia Maratona' 
-  AND u.email = 'admin@pacerunhub.com'
+  AND u.email = 'admin@example.com'
   AND NOT EXISTS (
       SELECT 1 FROM corridas 
       WHERE titulo = 'Meia Maratona de Brasília'
@@ -196,7 +196,7 @@ SELECT
     true as publicado
 FROM categorias c, usuarios u
 WHERE c.nome = '5K' 
-  AND u.email = 'admin@pacerunhub.com'
+  AND u.email = 'admin@example.com'
   AND NOT EXISTS (
       SELECT 1 FROM corridas 
       WHERE titulo = 'Corrida Noturna Ibirapuera'
@@ -228,7 +228,7 @@ SELECT
     true as publicado
 FROM categorias c, usuarios u
 WHERE c.nome = 'Corrida Rústica' 
-  AND u.email = 'admin@pacerunhub.com'
+  AND u.email = 'admin@example.com'
   AND NOT EXISTS (
       SELECT 1 FROM corridas 
       WHERE titulo = 'Corrida Rústica de Bonito'
@@ -258,7 +258,7 @@ SELECT
     u.id as criado_por,
     true as publicado
 FROM usuarios u
-WHERE u.email = 'admin@pacerunhub.com'
+WHERE u.email = 'admin@example.com'
   AND NOT EXISTS (
       SELECT 1 FROM eventos_calendario 
       WHERE titulo = 'Maratona de Boston 2025'
@@ -282,7 +282,7 @@ SELECT
     u.id as criado_por,
     true as publicado
 FROM usuarios u
-WHERE u.email = 'admin@pacerunhub.com'
+WHERE u.email = 'admin@example.com'
   AND NOT EXISTS (
       SELECT 1 FROM eventos_calendario 
       WHERE titulo = 'Maratona de Londres 2025'
@@ -381,7 +381,7 @@ O script irá:
 Após executar:
 • Recarregue a aplicação React
 • Verifique a página inicial (deve mostrar as corridas)
-• Teste o login com: admin@pacerunhub.com
+• Teste o login com: admin@example.com
 • Acesse o dashboard administrativo
 • Verifique a página de calendário
 

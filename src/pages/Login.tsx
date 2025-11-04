@@ -41,7 +41,7 @@ const Login = () => {
       if (isSignUp) {
         // Validação das credenciais predefinidas para cadastro
         if (email !== SIGNUP_EMAIL) {
-          toast.error("Email deve ser: paceram@gmail.com");
+          toast.error("Email não autorizado para cadastro");
           return;
         }
         
@@ -113,7 +113,7 @@ const Login = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder={isSignUp ? "paceram@gmail.com" : "seu@email.com"}
+                placeholder="seu@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
@@ -128,7 +128,7 @@ const Login = () => {
               <Input
                 id="password"
                 type="password"
-                placeholder={isSignUp ? "pace123456" : "••••••••"}
+                placeholder={isSignUp ? "mínimo 6 caracteres" : "••••••••"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"

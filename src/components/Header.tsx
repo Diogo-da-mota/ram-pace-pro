@@ -73,12 +73,7 @@ const Header = () => {
             Calendário
           </Link>
 
-          <Link 
-            to="/login" 
-            className="bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl"
-          >
-            Login
-          </Link>
+          {/* Login removido: acesso apenas via URL direta */}
         </nav>
 
       </div>

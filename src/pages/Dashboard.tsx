@@ -493,9 +493,14 @@ const Dashboard = () => {
             />
             
           </div>
-          <Button variant="outline" className="border-border text-foreground hover:bg-accent" onClick={handleLogout}>
-            Sair
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button asChild variant="outline" className="border-border text-foreground hover:bg-accent">
+              <a href="/" target="_blank" rel="noopener noreferrer">Ver Site</a>
+            </Button>
+            <Button variant="outline" className="border-border text-foreground hover:bg-accent" onClick={handleLogout}>
+              Sair
+            </Button>
+          </div>
         </div>
       </header>
 
