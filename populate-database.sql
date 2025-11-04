@@ -31,9 +31,9 @@ ON CONFLICT (nome) DO NOTHING;
 SELECT 'Inserindo usuários...' as status;
 
 INSERT INTO usuarios (nome, email, senha_hash, tipo_usuario, ativo) VALUES
-('Admin Sistema', 'admin@pacerunhub.com', '$2b$10$exemplo_hash_senha_admin_deve_ser_alterado_em_producao', 'admin', true),
-('João Silva', 'joao@email.com', '$2b$10$exemplo_hash_senha_usuario', 'usuario', true),
-('Maria Santos', 'maria@email.com', '$2b$10$exemplo_hash_senha_usuario', 'usuario', true)
+('Admin Sistema', 'admin@example.com', '$2b$10$exemplo_hash_senha_admin_deve_ser_alterado_em_producao', 'admin', true),
+('João Silva', 'user1@example.com', '$2b$10$exemplo_hash_senha_usuario', 'usuario', true),
+('Maria Santos', 'user2@example.com', '$2b$10$exemplo_hash_senha_usuario', 'usuario', true)
 ON CONFLICT (email) DO NOTHING;
 
 -- =====================================================

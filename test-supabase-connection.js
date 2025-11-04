@@ -9,9 +9,17 @@ import dotenv from 'dotenv';
 // Carregar variáveis de ambiente
 dotenv.config();
 
-// Configuração do Supabase - usando as credenciais hardcoded dos scripts existentes
-const supabaseUrl = 'https://oowclaofuhcfdqcjmvmr.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vd2NsYW9mdWhjZmRxY2ptdm1yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY3Mzk3NjAsImV4cCI6MjA3MjMxNTc2MH0.9ETMv1iaN7LEcJOHuS26cLpp1cEO4w7BM0bPEoGugvQ';
+// Configuração do Supabase - via variáveis de ambiente
+const supabaseUrl = process.env.VITE_SUPABASE_URL;
+const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  console.error('❌ Variáveis de ambiente não configuradas');
+  console.error('💡 Crie um arquivo .env na raiz do projeto com:');
+  console.error('   VITE_SUPABASE_URL=sua_url');
+  console.error('   VITE_SUPABASE_ANON_KEY=sua_chave');
+  process.exit(1);
+}
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 

@@ -18,8 +18,7 @@ const Login = () => {
   const { user, signIn, signUp, loading: authLoading } = useAuthSession();
 
   // Credenciais de cadastro predefinidas
-  const SIGNUP_EMAIL = "paceram@gmail.com";
-  const SIGNUP_PASSWORD = "pace123456";
+  const SIGNUP_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || "admin@example.com";
 
   // Redirecionar se já estiver logado
   useEffect(() => {
@@ -46,10 +45,7 @@ const Login = () => {
           return;
         }
         
-        if (password !== SIGNUP_PASSWORD) {
-          toast.error("Senha deve ser: pace123456");
-          return;
-        }
+        /* Removido: validação de senha hardcoded no frontend */
         
         if (password !== confirmPassword) {
           toast.error("Senhas não coincidem");

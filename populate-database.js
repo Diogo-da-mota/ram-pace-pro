@@ -31,13 +31,13 @@ const categorias = [
 const usuarios = [
   {
     nome: 'Admin Sistema',
-    email: 'admin@pacerunhub.com',
+    email: 'admin@example.com',
     tipo_usuario: 'admin',
     ativo: true
   },
   {
     nome: 'João Silva',
-    email: 'joao@email.com',
+    email: 'user1@example.com',
     tipo_usuario: 'usuario',
     ativo: true
   }

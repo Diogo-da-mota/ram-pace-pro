@@ -31,3 +31,5 @@ dist-ssr
 
 # ZIP files
 *.zip
+docs/PROMPT/🎯 Guia de Regras e Boas Práticas para LLMs.md
+*.md
