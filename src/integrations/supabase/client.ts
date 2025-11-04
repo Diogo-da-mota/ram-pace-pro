@@ -2,20 +2,38 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const fallbackUrl = 'https://localhost.invalid';
-const fallbackKey = 'public-anon-key-demo';
+declare global {
+  interface Window {
+    __ENV__?: {
+      VITE_SUPABASE_URL?: string;
+      VITE_SUPABASE_ANON_KEY?: string;
+    };
+  }
+}
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || fallbackUrl;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || fallbackKey;
+const SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL ??
+  (typeof window !== 'undefined' ? window.__ENV__?.VITE_SUPABASE_URL : undefined) ??
+  'https://example.supabase.co';
 
-if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
-  console.warn('Usando credenciais de demonstração (Lovable). Configure .env para produção.');
+const SUPABASE_PUBLISHABLE_KEY =
+  import.meta.env.VITE_SUPABASE_ANON_KEY ??
+  (typeof window !== 'undefined' ? window.__ENV__?.VITE_SUPABASE_ANON_KEY : undefined) ??
+  'public-anon-key';
+
+if (
+  SUPABASE_URL === 'https://example.supabase.co' ||
+  SUPABASE_PUBLISHABLE_KEY === 'public-anon-key'
+) {
+  console.warn(
+    'Supabase não configurado. Defina VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY via .env ou public/env-config.js no Lovable.'
+  );
 }
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+export const supabase = createClient<Database>(SUPABASE_URL as string, SUPABASE_PUBLISHABLE_KEY as string, {
   auth: {
     storage: localStorage,
     persistSession: true,
