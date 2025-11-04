@@ -2,8 +2,15 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const fallbackUrl = 'https://localhost.invalid';
+const fallbackKey = 'public-anon-key-demo';
+
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || fallbackUrl;
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || fallbackKey;
+
+if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
+  console.warn('Usando credenciais de demonstração (Lovable). Configure .env para produção.');
+}
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
