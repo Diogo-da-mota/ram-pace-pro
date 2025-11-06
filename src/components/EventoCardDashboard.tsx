@@ -87,7 +87,7 @@ const EventoCardDashboard: React.FC<EventoCardDashboardProps> = ({ evento, onEdi
       style={{ animationDelay: `${animationDelay}s` }}
     >
       {/* Layout Mobile - Novo Design */}
-      <Card className="sm:hidden bg-gray-800 dark:bg-gray-800 shadow-lg border border-gray-700 dark:border-gray-700 hover:shadow-xl transition-all duration-300 w-[95%] mx-auto rounded-lg overflow-hidden">
+      <Card className="sm:hidden bg-gray-800 dark:bg-gray-800 shadow-lg border border-gray-700 dark:border-gray-700 hover:shadow-xl transition-all duration-300 w-full rounded-lg overflow-hidden">
         
         {/* Linha 1: [ícone calendário + dia da semana . data] [status] */}
         <div className="flex justify-between items-center p-4">
@@ -182,7 +182,7 @@ const EventoCardDashboard: React.FC<EventoCardDashboardProps> = ({ evento, onEdi
       </Card>
 
       {/* Layout Desktop - Mesmo estilo visual do mobile */}
-      <Card className="hidden sm:block bg-gray-800 dark:bg-gray-800 shadow-lg border border-gray-700 dark:border-gray-700 hover:shadow-xl transition-all duration-300 w-[95%] mx-auto rounded-lg overflow-hidden">
+      <Card className="hidden sm:block bg-gray-800 dark:bg-gray-800 shadow-lg border border-gray-700 dark:border-gray-700 hover:shadow-xl transition-all duration-300 w-full rounded-lg overflow-hidden">
         
         {/* Layout Desktop - Horizontal seguindo o padrão do mobile */}
         <div className="flex items-center justify-between p-4">
@@ -266,7 +266,7 @@ const EventoCardDashboard: React.FC<EventoCardDashboardProps> = ({ evento, onEdi
             {/* Botão Apagar */}
             <button 
               onClick={() => onDelete(evento.id)}
-              className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition-colors duration-200"
+              className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition-colors duração-200"
             >
               <Trash2 className="w-4 h-4" />
             </button>
