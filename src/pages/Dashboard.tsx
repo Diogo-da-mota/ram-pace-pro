@@ -906,6 +906,7 @@ const Dashboard = () => {
                       onEdit={handleEditarEvento}
                       onDelete={handleExcluirEvento}
                       animationDelay={index * 0.1}
+                      mobileCompactClosedLabel={isMobile}
                     />
                   ))}
                 </div>

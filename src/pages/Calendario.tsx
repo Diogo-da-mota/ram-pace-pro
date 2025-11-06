@@ -7,6 +7,7 @@ import { useEventosPublicos } from "@/hooks/useEventosPublicos";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { X } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Calendario = () => {
   const { eventos, regioes, anos, loading, error, buscarEventosComFiltros } = useEventosPublicos();
@@ -14,6 +15,7 @@ const Calendario = () => {
   const [filtroStatus, setFiltroStatus] = useState<string>("todas");
   const [filtroAno, setFiltroAno] = useState<string>("todos");
   const [filtroDistancia, setFiltroDistancia] = useState<string>("todas");
+  const isMobile = useIsMobile();
 
   const handleFiltroRegiao = (valor: string) => {
     setFiltroRegiao(valor);
@@ -206,6 +208,7 @@ const Calendario = () => {
                   key={evento.id}
                   evento={evento}
                   animationDelay={index * 0.15}
+                  mobileCompactClosedLabel={isMobile}
                 />
               ))}
             </div>

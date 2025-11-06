@@ -19,9 +19,11 @@ export interface EventoCardData {
 interface EventoCardProps {
   evento: EventoCardData;
   animationDelay?: number;
+  // Permite rótulo compacto para status encerrado em mobile (exibir "Encerrado")
+  mobileCompactClosedLabel?: boolean;
 }
 
-const EventoCard: React.FC<EventoCardProps> = ({ evento, animationDelay = 0 }) => {
+const EventoCard: React.FC<EventoCardProps> = ({ evento, animationDelay = 0, mobileCompactClosedLabel = false }) => {
   // Função para formatar a data de ISO para dd.mm.aaaa (evitando problemas de fuso horário)
   const formatarData = (dataISO: string): string => {
     try {
@@ -75,6 +77,8 @@ const EventoCard: React.FC<EventoCardProps> = ({ evento, animationDelay = 0 }) =
   };
 
   const statusConfig = getStatusConfig(evento.status);
+  // Texto do status para mobile pode ser compacto em caso de encerrado
+  const statusTextMobile = mobileCompactClosedLabel && evento.status === 'encerrado' ? 'Encerrado' : statusConfig.text;
 
   return (
     <div 
@@ -99,7 +103,7 @@ const EventoCard: React.FC<EventoCardProps> = ({ evento, animationDelay = 0 }) =
               </div>
             </div>
             <div className={`${statusConfig.className} px-3 py-2 rounded-lg text-sm font-semibold`}>
-              {statusConfig.text}
+              {statusTextMobile}
             </div>
           </div>
 
