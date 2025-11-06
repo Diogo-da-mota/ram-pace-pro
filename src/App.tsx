@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthSessionProvider } from "@/components/AuthSessionProvider";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { useDarkMode } from "@/hooks/useDarkMode";
@@ -29,11 +29,32 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={
+            <Route path="/dashboard-corridas" element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
             } />
+            <Route path="/dashboard-calendario" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/dashboard-redes-sociais" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/dashboard-outros" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/dashboard-background" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/dashboard" element={<Navigate to="/dashboard-corridas" replace />} />
             <Route path="/calendario" element={<Calendario />} />
             <Route path="/admin/background" element={
               <ProtectedRoute>

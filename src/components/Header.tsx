@@ -6,6 +6,7 @@ const Header = () => {
   const { isDark, toggleDarkMode } = useDarkMode();
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const hideLogin = isHome || location.pathname === "/calendario";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm">
@@ -45,7 +46,7 @@ const Header = () => {
           </Link>
 
           {/* Botão Login (Mobile) */}
-          {!isHome && (
+          {!hideLogin && (
             <Link
               to="/login"
               className="text-white transition-colors duration-200 font-medium text-xl flex items-center"
@@ -88,7 +89,7 @@ const Header = () => {
           </Link>
 
           {/* Botão Login (Desktop) */}
-          {!isHome && (
+          {!hideLogin && (
             <Link 
               to="/login" 
               className="text-white hover:text-blue-400 transition-colors duration-200 font-medium text-xl flex items-center"

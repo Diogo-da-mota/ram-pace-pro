@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useAuthSession } from "@/hooks/useAuthSession";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -61,7 +62,8 @@ const Dashboard = () => {
     { value: '21k', label: '21K (Meia Maratona)' },
     { value: '42k', label: '42K (Maratona)' }
   ];
-  const [activeSection, setActiveSection] = useState("corridas");
+  const location = useLocation();
+  const activeTab = location.pathname.replace('/dashboard-', '') || 'corridas';
   const { loading: loadingCorrida, criarCorrida, editarCorrida, excluirCorrida, buscarCorridas, toggleVisibilidade, separarPorData } = useCorridas();
   const { loading: loadingEvento, criarEvento, editarEvento, excluirEvento, buscarEventos } = useCalendario();
   const { loading: loadingRedeSocial, criarRedeSocial, editarRedeSocial, excluirRedeSocial, buscarRedesSociais } = useRedesSociais();
@@ -122,10 +124,10 @@ const Dashboard = () => {
 
   // Redirecionar para aba válida quando em mobile e aba background estiver ativa
   useEffect(() => {
-    if (isMobile && activeSection === "background") {
-      setActiveSection("corridas");
+    if (isMobile && activeTab === "background") {
+      navigate("/dashboard-corridas");
     }
-  }, [isMobile, activeSection]);
+  }, [isMobile, activeTab, navigate]);
 
   // Carregar corridas, eventos, redes sociais e outros conteúdos ao montar o componente
   useEffect(() => {
@@ -505,16 +507,14 @@ const Dashboard = () => {
       </header>
 
       <div className="w-full px-4 p-6">
-        <Tabs value={activeSection} onValueChange={setActiveSection} className="space-y-6">
-          <TabsList className={`grid ${isMobile ? 'grid-cols-4' : 'grid-cols-5'} w-full max-w-3xl mx-auto bg-muted`}>
-            <TabsTrigger value="corridas" className="font-medium">Corridas</TabsTrigger>
-            <TabsTrigger value="calendario" className="font-medium">Calendário</TabsTrigger>
-            <TabsTrigger value="redes-sociais" className="font-medium">Redes Sociais</TabsTrigger>
-            <TabsTrigger value="outros" className="font-medium">Outros</TabsTrigger>
-            {!isMobile && (
-              <TabsTrigger value="background" className="font-medium">Background</TabsTrigger>
-            )}
-          </TabsList>
+        <Tabs value={activeTab} className="space-y-6">
+          <div className="grid w-full grid-cols-5 gap-2 mb-6 max-w-3xl mx-auto">
+            <Link to="/dashboard-corridas" className={activeTab === 'corridas' ? 'active' : ''}>Corridas</Link>
+            <Link to="/dashboard-calendario" className={activeTab === 'calendario' ? 'active' : ''}>Calendário</Link>
+            <Link to="/dashboard-redes-sociais" className={activeTab === 'redes-sociais' ? 'active' : ''}>Redes Sociais</Link>
+            <Link to="/dashboard-outros" className={activeTab === 'outros' ? 'active' : ''}>Outros</Link>
+            <Link to="/dashboard-background" className={activeTab === 'background' ? 'active' : ''}>Background</Link>
+          </div>
 
           <TabsContent value="corridas" className="animate-fade-in">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
