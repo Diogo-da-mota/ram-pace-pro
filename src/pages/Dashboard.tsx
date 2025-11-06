@@ -528,13 +528,52 @@ const Dashboard = () => {
 
       <div className="w-full px-4 p-6">
         <Tabs value={activeTab} className="space-y-6">
-          <div className="grid w-full grid-cols-6 gap-2 mb-6 max-w-4xl mx-auto">
-            <Link to="/dashboard-corridas" className={activeTab === 'corridas' ? 'active' : ''}>Corridas</Link>
-            <Link to="/dashboard-calendario" className={activeTab === 'calendario' ? 'active' : ''}>Calendário</Link>
-            <Link to="/dashboard-redes-sociais" className={activeTab === 'redes-sociais' ? 'active' : ''}>Redes Sociais</Link>
-            <Link to="/dashboard-outros" className={activeTab === 'outros' ? 'active' : ''}>Outros</Link>
-            <Link to="/dashboard-background" className={activeTab === 'background' ? 'active' : ''}>Background</Link>
-            <Link to="/dashboard-configuracoes" className={activeTab === 'configuracoes' ? 'active' : ''}>Configurações</Link>
+          {/* Navegação - Mobile (duas linhas): 3 acima, 2 abaixo */}
+          <div className="md:hidden space-y-2 mb-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-2">
+              <Link
+                to="/dashboard-corridas"
+                className={`${activeTab === 'corridas' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-black text-foreground hover:bg-gray-50 shadow-sm`}
+              >
+                Corridas
+              </Link>
+              <Link
+                to="/dashboard-calendario"
+                className={`${activeTab === 'calendario' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-black text-foreground hover:bg-gray-50 shadow-sm`}
+              >
+                Calendário
+              </Link>
+              <Link
+                to="/dashboard-redes-sociais"
+                className={`${activeTab === 'redes-sociais' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-black text-foreground hover:bg-gray-50 shadow-sm`}
+              >
+                Redes Sociais
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <Link
+                to="/dashboard-outros"
+                className={`${activeTab === 'outros' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-black text-foreground hover:bg-gray-50 shadow-sm`}
+              >
+                Outros
+              </Link>
+              <Link
+                to="/dashboard-configuracoes"
+                className={`${activeTab === 'configuracoes' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-black text-foreground hover:bg-gray-50 shadow-sm`}
+              >
+                Configurações
+              </Link>
+            </div>
+          </div>
+
+          {/* Navegação - Desktop (linha única com 6 colunas) */}
+          <div className="hidden md:grid w-full grid-cols-6 gap-2 mb-6 max-w-4xl mx-auto">
+            <Link to="/dashboard-corridas" className={`${activeTab === 'corridas' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-white text-foreground hover:bg-gray-50 shadow-sm`}>Corridas</Link>
+            <Link to="/dashboard-calendario" className={`${activeTab === 'calendario' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-white text-foreground hover:bg-gray-50 shadow-sm`}>Calendário</Link>
+            <Link to="/dashboard-redes-sociais" className={`${activeTab === 'redes-sociais' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-white text-foreground hover:bg-gray-50 shadow-sm`}>Redes Sociais</Link>
+            <Link to="/dashboard-outros" className={`${activeTab === 'outros' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-white text-foreground hover:bg-gray-50 shadow-sm`}>Outros</Link>
+            <Link to="/dashboard-background" className={`${activeTab === 'background' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-white text-foreground hover:bg-gray-50 shadow-sm`}>Background</Link>
+            <Link to="/dashboard-configuracoes" className={`${activeTab === 'configuracoes' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-white text-foreground hover:bg-gray-50 shadow-sm`}>Configurações</Link>
           </div>
 
           <TabsContent value="corridas" className="animate-fade-in">
