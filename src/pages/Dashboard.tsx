@@ -545,7 +545,7 @@ const Dashboard = () => {
             </div>
 
             {/* Segunda linha: Redes Sociais, Portfolio, Configurações */}
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 gap-3">
               <Link
                 to="/dashboard-redes-sociais"
                 className={`${activeTab === 'redes-sociais' ? 'active' : ''} w-full text-center py-2 px-3 rounded-md border border-border bg-black text-foreground hover:bg-black shadow-sm`}
