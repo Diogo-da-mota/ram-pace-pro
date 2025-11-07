@@ -44,6 +44,15 @@ const Header = () => {
             <Calendar className="w-5 h-5 text-blue-400 mr-2" />
             Calendário
           </Link>
+
+          {/* Botão Portfolio (mobile) */}
+          <Link 
+            to="/portfolio" 
+            className="text-blue-400 transition-colors duration-200 font-medium text-xl flex items-center"
+            style={{ fontFamily: 'Roboto, sans-serif' }}
+          >
+            Portfolio
+          </Link>
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
